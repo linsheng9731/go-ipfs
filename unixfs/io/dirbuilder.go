@@ -192,3 +192,11 @@ func (d *Directory) GetNode() (node.Node, error) {
 
 	return d.shard.Node()
 }
+
+func (d *Directory) GetPrefix() *cid.Prefix {
+	if d.shard == nil {
+		return &d.dirnode.Prefix
+	}
+
+	return d.shard.Prefix()
+}
